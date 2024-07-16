@@ -13,11 +13,11 @@ prices = {
 }
 
 cart = {
-    'num100': 0,
-    'numOrange': 0,
-    'numApple': 0,
-    'numCoke':0,
-    'numSprites': 0
+    'Number of 100Plus': 0,
+    'Number of Orange Juice': 0,
+    'Number of Apple Juice': 0,
+    'Number of CocaCola':0,
+    'Number of Sprite': 0
 }
 
 #------------------------------Functions---------------------------
@@ -31,11 +31,11 @@ def main_menu():
 def drink_menu():
     print("""
     0. Exit to Main Menu
-    1. 100 Plus
-    2. Orange Juice
-    3. Apple Juice
-    4. CocaCola
-    5. Sprite\n""")
+    1. 100 Plus - RM 3
+    2. Orange Juice - RM 3
+    3. Apple Juice - RM 4
+    4. CocaCola - RM 3
+    5. Sprite - RM 3\n""")
 
 def getmenuoptions():
     menuoptions = (input("Please enter your options: "))
@@ -48,22 +48,22 @@ def getdrinkoptions():
 def getamount(number):
     amount = int(input("Please enter desired amount: "))
     if number=="1":
-        cart['num100']+= amount
-        print("Number of 100Plus: ", cart['num100'])
+        cart['Number of 100Plus']+= amount
+        print("Number of 100Plus: ", cart['Number of 100Plus'])
     elif number=="2":
-        cart['numOrange'] += amount
-        print("Number of Orange Juice: ", cart['numOrange'])
+        cart['Number of Orange Juice'] += amount
+        print("Number of Orange Juice: ", cart['Number of Orange Juice'])
     elif number =="3":
-        cart['numApple'] += amount
-        print("Number of Apple Juice: ", cart['numApple'])
+        cart['Number of Apple Juice'] += amount
+        print("Number of Apple Juice: ", cart['Number of Apple Juice'])
         
     elif number == "4":
-        cart['numCoke'] += amount
-        print("Number of CocaCola: ", cart['numCoke'])
+        cart['Number of CocaCola'] += amount
+        print("Number of CocaCola: ", cart['Number of CocaCola'])
         
     elif number == "5":
-        cart['numSprites'] += amount
-        print("Number of Sprite: ", cart['numSprites'])
+        cart['Number of Sprite'] += amount
+        print("Number of Sprite: ", cart['Number of Sprite'])
     else:
         print("Invalid Input.")
 
@@ -77,11 +77,11 @@ def displaycart(total):
 
 def getsum():
     sum = 0
-    sum = cart['num100']*prices['price100'] + cart['numOrange']*prices['priceOrange'] + cart['numApple']*prices['priceApple'] + cart['numCoke']*prices['priceCoke'] + cart['numSprites']*prices['priceSprite']
+    sum = cart['Number of 100Plus']*prices['price100'] + cart['Number of Orange Juice']*prices['priceOrange'] + cart['Number of Apple Juice']*prices['priceApple'] + cart['Number of CocaCola']*prices['priceCoke'] + cart['Number of Sprite']*prices['priceSprite']
     print("Total: RM",sum)
     return sum
 
-def getpayment():
+def getpayment(sum):
     change = 0
     while True:
         payment = int(input("Please Payment Amount: RM "))
@@ -136,6 +136,6 @@ while True:
         total = getsum()
         displaycart(total)
         if(total != 0):
-            getpayment()
+            getpayment(total)
     else:
         print("Invalid Input...")
